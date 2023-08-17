@@ -1,5 +1,5 @@
 #!/bin/bash
 git add .
 git commit -m $1
-git pull origin main
-git push -u origin main
+git pull origin alpha
+git push -u origin alpha
