@@ -47,7 +47,9 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.small(
         backgroundColor: Colors.white.withOpacity(0.8),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         child: Icon(
           Icons.arrow_back_ios_new_sharp,
           color: Colors.green.shade800,
