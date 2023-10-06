@@ -5,13 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mahfoud/screens/widgets/custom_login_clipper.dart';
 
-import '../logic/bloc/login_bloc.dart';
+import '../logic/bloc/login/login_bloc.dart';
 import 'pages/homePage.dart';
 import 'widgets/customElevatedButton.dart';
 import 'widgets/customSnackBar.dart';
+import 'widgets/emailTextField.dart';
 import 'widgets/passwordTextField.dart';
 import 'widgets/roundedCheckBox.dart';
-import 'widgets/userNameTextField.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,7 +22,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   late Future googleFontsPending;
-  late TextEditingController userNameController;
+  late TextEditingController emailController;
   late TextEditingController passwordController;
   late LoginBloc _loginBloc;
 
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     _loginBloc = LoginBloc();
     _loginBloc.add(CheckToken());
-    userNameController = TextEditingController();
+    emailController = TextEditingController();
     passwordController = TextEditingController();
     googleFontsPending = GoogleFonts.pendingFonts([
       GoogleFonts.tajawal(),
@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
     _loginBloc.close();
-    userNameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -59,14 +59,6 @@ class _LoginPageState extends State<LoginPage> {
       fontWeight: FontWeight.w600,
       fontSize: 40,
       textStyle: Theme.of(context).textTheme.headlineMedium,
-    );
-    final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-      minimumSize: const Size(double.infinity, 50),
-      backgroundColor: Colors.green.shade800,
-      elevation: 0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(50)),
-      ),
     );
     // final msg = BlocBuilder<AuthBloc, AuthState>(
     //   builder: (context, state) {
@@ -209,8 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20),
-                  child: UserNameTextField(
-                      type: true, userNameController: userNameController),
+                  child: EmailTextField(emailController: emailController),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20),
@@ -239,9 +230,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 50),
                 CustomElevatedButton(
-                  elevatedButtonStyle: elevatedButtonStyle,
-                  loginBloc: _loginBloc,
-                  userNameController: userNameController,
+                  theBloc: _loginBloc,
+                  emailController: emailController,
                   passwordController: passwordController,
                   title: 'تسجيل الدخول',
                 ),

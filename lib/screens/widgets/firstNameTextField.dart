@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class UserNameTextField extends StatelessWidget {
-  const UserNameTextField(
-      {super.key, required this.userNameController, required this.type});
+class FirstNameTextField extends StatelessWidget {
+  const FirstNameTextField({super.key, required this.firstNameController});
 
-  final TextEditingController userNameController;
-  final bool type;
+  final TextEditingController firstNameController;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +11,9 @@ class UserNameTextField extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: TextField(
         textInputAction: TextInputAction.next,
-        keyboardType: type ? TextInputType.emailAddress : TextInputType.text,
+        keyboardType: TextInputType.text,
         textAlign: TextAlign.right,
-        controller: userNameController,
+        controller: firstNameController,
         cursorColor: Colors.green.shade800,
         style: TextStyle(color: Colors.green.shade800),
         decoration: InputDecoration(

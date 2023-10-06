@@ -5,9 +5,16 @@ abstract class SignupEvent {}
 
 //GetSignup Event for Creating New User
 class GetSignup extends SignupEvent {
-  String? fullname;
+  String? firstName;
+  String? lastName;
   String? email;
   String? password;
   String? phoneNumber;
-  GetSignup({this.email, this.password, this.fullname, this.phoneNumber});
+  GetSignup({
+    this.email,
+    this.password,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+  });
 }

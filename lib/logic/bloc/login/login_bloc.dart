@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:mahfoud/data/repositories/auth_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../data/repositories/auth_repo.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 

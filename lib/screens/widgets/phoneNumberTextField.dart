@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class EmailTextField extends StatelessWidget {
-  const EmailTextField({super.key, required this.emailController});
+class PhoneNumberTextField extends StatelessWidget {
+  const PhoneNumberTextField({super.key, required this.phoneNumberController});
 
-  final TextEditingController emailController;
+  final TextEditingController phoneNumberController;
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +11,13 @@ class EmailTextField extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: TextField(
         textAlign: TextAlign.right,
-        controller: emailController,
-        keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
+        keyboardType: TextInputType.phone,
+        controller: phoneNumberController,
         cursorColor: Colors.green.shade800,
         style: TextStyle(color: Colors.green.shade800),
         decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.email_sharp),
+            prefixIcon: const Icon(Icons.phone_android_sharp),
             prefixIconColor: Colors.green.shade800,
             filled: true,
             fillColor: Colors.grey.shade300,
@@ -24,7 +25,7 @@ class EmailTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none,
             ),
-            hintText: 'البريد الإلكتروني',
+            hintText: 'رقم الهاتف',
             hintStyle: TextStyle(color: Colors.green.shade800)),
       ),
     );

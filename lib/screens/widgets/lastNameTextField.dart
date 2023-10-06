@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class EmailTextField extends StatelessWidget {
-  const EmailTextField({super.key, required this.emailController});
+class LastNameTextField extends StatelessWidget {
+  const LastNameTextField({super.key, required this.lastNameController});
 
-  final TextEditingController emailController;
-
+  final TextEditingController lastNameController;
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextField(
+        textInputAction: TextInputAction.next,
+        keyboardType: TextInputType.text,
         textAlign: TextAlign.right,
-        controller: emailController,
-        keyboardType: TextInputType.emailAddress,
+        controller: lastNameController,
         cursorColor: Colors.green.shade800,
         style: TextStyle(color: Colors.green.shade800),
         decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.email_sharp),
+            prefixIcon: const Icon(Icons.person_sharp),
             prefixIconColor: Colors.green.shade800,
             filled: true,
             fillColor: Colors.grey.shade300,
@@ -24,7 +24,7 @@ class EmailTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none,
             ),
-            hintText: 'البريد الإلكتروني',
+            hintText: 'لقب المستخدم',
             hintStyle: TextStyle(color: Colors.green.shade800)),
       ),
     );
